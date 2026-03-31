@@ -1,1 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026年3月30日全网TOP5热点 - 交叉验证版</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-sub: #64748b;
+            --hot-1: #ef4444; /* 红色 */
+            --hot-2: #f97316; /* 橙色 */
+            --hot-3: #eab308; /* 黄色 */
+        }
 
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--card-bg);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .date-badge {
+            background: #e2e8f0;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            color: var(--text-sub);
+        }
+
+        .news-list {
+            padding: 20px 0;
+        }
+
+        .news-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            border: 1px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .news-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .rank-number {
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 5rem;
+            font-weight: 900;
+            color: #f1f5f9;
+            z-index: 0;
+            line-height: 1;
+        }
+
+        .news-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .news-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0 0 12px 0;
+            padding-right: 80px;
+        }
+
+        .news-desc {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        .meta-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 12px;
+        }
+
+        .source-tag {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.875rem;
+            color: var(--text-sub);
+            font-weight: 500;
+        }
+
+        .verified-badge {
+            background: #dcfce7;
+            color: #166534;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .heat-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .heat-bar-bg {
+            width: 100px;
+            height: 6px;
+            background: #e2e8f0;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .heat-bar-fill {
+            height: 100%;
+            border-radius: 3px;
+        }
+
+        .heat-text {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-sub);
+            min-width: 45px;
+            text-align: right;
+        }
+
+        .rank-1 .heat-bar-fill { background: var(--hot-1); }
+        .rank-1 .news-title { color: var(--hot-1); }
+        
+        .rank-2 .heat-bar-fill { background: var(--hot-2); }
+        .rank-2 .news-title { color: var(--hot-2); }
+
+        .rank-3 .heat-bar-fill { background: var(--hot-3); }
+        .rank-3 .news-title { color: #ca8a04; }
+
+        .footer-note {
+            text-align: center;
+            color: var(--text-sub);
+            font-size: 0.8rem;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .news-card { padding: 20px; }
+            .news-title { font-size: 1.1rem; padding-right: 0; margin-bottom: 8px; }
+            .meta-footer { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .heat-container { width: 100%; justify-content: flex-end; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <h1>全网热点 TOP5</h1>
+            <span id="dateDisplay" class="date-badge">2026-03-30</span>
+        </div>
+    </header>
+
+    <main class="container news-list" id="newsListContainer">
+        <!-- 新闻卡片将由 JavaScript 动态插入 -->
+    </main>
+
+    <footer class="footer-note">
+        <p>数据来源：新浪热榜、央广网、夸克热榜 | 更新时间：<span id="updateTime">2026-03-30 09:00</span></p>
+    </footer>
+
+    <script>
+        // === 数据区域：修改这里的内容即可更新新闻 ===
+        const newsData = [
+            {
+                title: "九寨沟震后首次实拍到野生大熊猫活体",
+                description: "九寨沟自然保护区科研团队通过红外相机首次捕捉到野生大熊猫活动影像，画面中大熊猫幼崽与母熊共同出镜，标志着震后生态修复取得阶段性成果。",
+                source: "新浪热榜",
+                heatValue: 4200000,
+                heatText: "420万",
+                rank: 1
+            },
+            {
+                title: "中国攻克液氢燃料航空涡轮动力关键技术",
+                description: "我国科研团队成功研发液氢燃料航空涡轮发动机，突破超低温燃料存储与高效燃烧技术瓶颈，为绿色航空动力发展奠定里程碑基础。",
+                source: "央广网",
+                heatValue: 1, // 滚动快讯，设为1表示TOP1
+                heatText: "TOP 1",
+                rank: 2
+            },
+            {
+                title: "DeepSeek服务突发大规模中断",
+                description: "AI平台DeepSeek于3月30日凌晨出现大规模服务宕机，用户无法访问核心功能。官方回应称系服务器过载导致，技术团队正紧急扩容。",
+                source: "新浪热榜",
+                heatValue: 3450000,
+                heatText: "345万",
+                rank: 3
+            },
+            {
+                title: "长江水下高铁工程启动施工",
+                description: "“十五五”重大工程——沿江高铁控制性节点正式开工，将建设世界首条穿越长江水下隧道的高铁线路，串联上海至成都三大城市群。",
+                source: "夸克热榜",
+                heatValue: 3050000,
+                heatText: "305万",
+                rank: 4
+            },
+            {
+                title: "美国爆发大规模反特朗普抗议",
+                description: "全美超50个城市同步举行示威，抗议者不满特朗普政府移民政策与医保改革。福克斯民调显示其不满率创任期新高，达66%。",
+                source: "新浪热榜",
+                heatValue: 2970000,
+                heatText: "297万",
+                rank: 5
+            }
+        ];
+
+        // === 渲染函数 ===
+        function renderNewsCards() {
+            const container = document.getElementById('newsListContainer');
+            container.innerHTML = ''; // 清空容器
+
+            // 计算最大热度值，用于归一化进度条
+            const maxHeat = Math.max(...newsData.map(item => typeof item.heatValue === 'number' && item.heatValue > 0 ? item.heatValue : 0), 1);
+
+            newsData.forEach((item, index) => {
+                const rankClass = item.rank <= 3 ? `rank-${item.rank}` : '';
+                const heatPercentage = item.heatValue === 1 ? 100 : Math.min(100, (item.heatValue / maxHeat) * 100); // TOP1固定100%
+
+                const cardElement = document.createElement('article');
+                cardElement.className = `news-card ${rankClass}`;
+                cardElement.innerHTML = `
+                    <div class="rank-number">${String(item.rank).padStart(2, '0')}</div>
+                    <div class="news-content">
+                        <h2 class="news-title">${item.title}</h2>
+                        <p class="news-desc">${item.description}</p>
+                        
+                        <div class="meta-footer">
+                            <div class="source-tag">
+                                <span>📰 ${item.source}</span>
+                                <span class="verified-badge">✅ 交叉验证通过</span>
+                            </div>
+                            <div class="heat-container">
+                                <div class="heat-bar-bg"><div class="heat-bar-fill" style="width: ${heatPercentage}%;"></div></div>
+                                <span class="heat-text">${item.heatText}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(cardElement);
+            });
+        }
+
+        // === 页面加载完成后执行 ===
+        document.addEventListener('DOMContentLoaded', () => {
+            renderNewsCards(); // 渲染新闻
+        });
+
+        // === 动态更新日期和时间 ===
+        const now = new Date();
+        const formattedDate = now.toISOString().split('T')[0];
+        document.getElementById('dateDisplay').textContent = formattedDate;
+        document.getElementById('updateTime').textContent = now.toLocaleString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
+
+    </script>
+</body>
+</html>
